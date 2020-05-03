@@ -20,7 +20,7 @@ public class HomeController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String submit(@ModelAttribute("user") User user, BindingResult bindingResult, Model model) {
 		if (!user.getUsername().equals("abc")) {
-			bindingResult.reject("username", "username not correct");
+			bindingResult.rejectValue("username","error.user" ,"username not correct");
 			return "index";
 		}
 		model.addAttribute("username", user.getUsername());
