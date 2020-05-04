@@ -15,23 +15,19 @@
 	<form:form method="POST" action="/login" modelAttribute="user">
 		<table>
 			<tr>
-				<td>
-					<form:label path="username">Username</form:label>
-				</td>
-				<td>
-					<form:input type="text" path="username" autofocus="true"></form:input>
-					<form:errors path="username"></form:errors>
-				</td>
-				
+				<td><form:label path="username">Username</form:label></td>
+				<td><spring:bind path="username">
+						<form:input type="text" path="username" autofocus="true"></form:input>
+						<form:errors path="username"></form:errors>
+					</spring:bind></td>
+
 			</tr>
 			<tr>
-				<td>
-					<form:label path="password">Password</form:label> 
-				</td>
-				<td>	
-					<form:input type="password" path="password"></form:input>
-					<form:errors path="password"></form:errors>
-				</td>
+				<td><form:label path="password">Password</form:label></td>
+				<td><spring:bind path="password">
+						<form:input type="password" path="password"></form:input>
+						<form:errors path="password"></form:errors>
+					</spring:bind></td>
 			</tr>
 			<tr>
 				<td>
