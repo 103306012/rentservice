@@ -13,7 +13,9 @@ public class ProductController {
 
 	@GetMapping("/addproduct")
 	public String addProductinitial(Model model) {
-		model.addAttribute("product",new Product());
+		Product p =new Product();
+		p.setDetail(" ");
+		model.addAttribute("product",p);
 		return "Product";
 	}
 

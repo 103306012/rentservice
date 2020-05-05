@@ -31,27 +31,24 @@
 	<form:form method="POST" action="${contextPath}/addproduct"
 		modelAttribute="product" class="form-signin">
 		<spring:bind path="name">
-			<form:input type="text" path="name" class="form-control"
-				placeholder="name" autofocus="true"></form:input>
+			name:<form:input type="text" path="name" class="form-control"
+				autofocus="true"></form:input>
 			<p></p>
 			<form:errors path="name"></form:errors>
 		</spring:bind>
 		<p></p>
 		<spring:bind path="type">
-			<form:input type="text" path="type" class="form-control"
-				placeholder="type"></form:input>
+			type:<form:input type="text" path="type" class="form-control"></form:input>
 			<p></p>
 			<form:errors path="type"></form:errors>
 		</spring:bind>
 		<p></p>
-		<spring:bind path="detail">
-			detail:<form:textarea path="detail">
-			</form:textarea>
-			<p></p>
-			<form:errors path="detail"></form:errors>
-		</spring:bind>
+			detail:<form:textarea path="detail" />
 		<p></p>
-		<form:input type="file" path="files" multiple="multiple"
+		<form:errors path="detail"></form:errors>
+
+		<p></p>
+		file:<form:input type="file" path="files" multiple="multiple"
 			accept="image/*" onchange="updateList()"></form:input>
 		<p>Selected files:</p>
 		<div id="fileList"></div>
