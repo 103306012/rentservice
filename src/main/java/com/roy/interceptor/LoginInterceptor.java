@@ -1,4 +1,4 @@
-package com.roy.login.interceptor;
+package com.roy.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,7 +12,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		if (request.getSession() == null || request.getSession().getAttribute("login") == null) {
-			response.sendRedirect("/index");
+			response.sendRedirect("/");
 			return false;
 		}
 		return true;

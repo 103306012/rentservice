@@ -8,42 +8,48 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.roy.login.model.User;
+import com.roy.login.model.Login;
 
 @Controller
-public class HomeController {
+public class LoginController {
 
-	@RequestMapping(value = { "/index", "/login" }, method = RequestMethod.GET)
-	public String index(HttpServletRequest request, Model model) {
+	@RequestMapping(value = { "/", "/login" }, method = RequestMethod.GET)
+	public String Index(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession(true);
 		if (session != null) {
 			String loginuUsername = (String) session.getAttribute("login");
 			if (loginuUsername != null) {
-				model.addAttribute("username", loginuUsername);
 				return "Home";
 			}
 		}
-		model.addAttribute("user", new User());
-		return "index";
+		model.addAttribute("login", new Login());
+		return "Index";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(@ModelAttribute("User") @Valid User user, HttpServletRequest request,
-			BindingResult bindingResult, Model model) {
+	public String login(@ModelAttribute("login") @Valid Login login, BindingResult bindingResult,
+			HttpServletRequest request, Model model) {
 		if (bindingResult.hasErrors()) {
-
-			return "/index";
-		} else if (!user.getUsername().equals("EX5399")) {
-			bindingResult.rejectValue("username", "error.user", "username not correct");
-			return "/index";
+			return "Index";
+		} else if (!login.getUsername().equals("EX539901")) {
+			bindingResult.rejectValue("username", "error.login", "username not correct");
+			return "Index";
 		} else {
 			request.changeSessionId();
 			HttpSession session = request.getSession(false);
-			session.setAttribute("login", user.getUsername());
-			model.addAttribute("username", user.getUsername());
+			session.setAttribute("login", login.getUsername());
 		}
 		return "redirect:/home";
+	}
+
+	@RequestMapping("/logout")
+	public String logout(HttpServletRequest request, RedirectAttributes redirAttr) {
+		HttpSession session = request.getSession();
+		session.invalidate();
+		redirAttr.addFlashAttribute("message", "成功登出");
+		return "redirect:/";
 	}
 
 	@RequestMapping("/home")

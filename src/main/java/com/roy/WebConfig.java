@@ -8,8 +8,10 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import com.roy.interceptor.LoginInterceptor;
+
 import org.springframework.validation.Validator;
-import com.roy.login.interceptor.LoginInterceptor;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
@@ -18,7 +20,7 @@ public class WebConfig implements WebMvcConfigurer {
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(logininterceptor).excludePathPatterns("/index", "/login");
+		registry.addInterceptor(logininterceptor).excludePathPatterns("/", "/login","/register");
 	}
 
 	@Bean

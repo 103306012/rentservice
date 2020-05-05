@@ -1,14 +1,12 @@
 package com.roy.login.model;
 
-import javax.validation.constraints.NotEmpty;
+
 import javax.validation.constraints.Size;
 
-public class User {
-	@NotEmpty(message = "validation.username.Empty")
-	@Size(min = 8, max = 12, message = "validation.username.Length")
+public class Login {
+	@Size(min = 8, max = 12)
 	private String username;
-	@NotEmpty(message = "validation.password.Empty")
-	@Size(min = 8, max = 12, message = "{validation.password.Length}")
+	@Size(min = 8, max = 12)
 	private String password;
 
 	public String getPassword() {
@@ -27,13 +25,13 @@ public class User {
 		this.password = password;
 	}
 
-	public User(String username, String password) {
+	public Login(String username, String password) {
 		super();
 		this.username = username;
 		this.password = password;
 	}
 
-	public User() {
+	public Login() {
 		super();
 	}
 
