@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.roy.interceptor.LoginInterceptor;
@@ -20,7 +21,8 @@ public class WebConfig implements WebMvcConfigurer {
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(logininterceptor).excludePathPatterns("/", "/login","/register");
+		registry.addInterceptor(logininterceptor).excludePathPatterns("/", "/login", "/register", "/webjars/**",
+				"/resources/**");
 	}
 
 	@Bean
@@ -38,4 +40,12 @@ public class WebConfig implements WebMvcConfigurer {
 		bean.setValidationMessageSource(messageSource());
 		return bean;
 	}
+
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+		registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/")
+				.resourceChain(false);
+	}
+
 }

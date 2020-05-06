@@ -27,8 +27,7 @@
 	}
 </script>
 <body>
-	<h2>Login In</h2>
-	<form:form method="POST" action="${contextPath}/addproduct"
+	<form:form method="POST" action="${contextPath}/addproduct" enctype="multipart/form-data"
 		modelAttribute="product" class="form-signin">
 		<spring:bind path="name">
 			name:<form:input type="text" path="name" class="form-control"

@@ -1,14 +1,17 @@
 package com.roy.product.model;
 
+import java.io.Serializable;
+import java.util.List;
+
 import org.springframework.web.multipart.MultipartFile;
 
-public class Product {
+public class Product implements Serializable {
 	private String name;
 	private String type;
 	private String detail;
-	private MultipartFile[] files;
+	private List<MultipartFile> files;
 
-	public Product(String name, String type, String detail, MultipartFile[] files) {
+	public Product(String name, String type, String detail, List<MultipartFile> files) {
 		super();
 		this.name = name;
 		this.type = type;
@@ -44,11 +47,11 @@ public class Product {
 		this.detail = detail;
 	}
 
-	public MultipartFile[] getFiles() {
+	public List<MultipartFile> getFiles() {
 		return files;
 	}
 
-	public void setFiles(MultipartFile[] files) {
+	public void setFiles(List<MultipartFile> files) {
 		this.files = files;
 	}
 

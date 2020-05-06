@@ -9,52 +9,40 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Login</title>
+<link rel="stylesheet"
+	href="webjars/bootstrap/4.4.1-1/css/bootstrap.min.css" />
+<link href="resources/css/common.css" rel="stylesheet">
 </head>
-<script type="text/javascript">
-	function updateList() {
-		var input = document.getElementById('files');
-		if (input.files.length > 5) {
-			input.value = '';
-			alert('to many files')
-			return;
-		}
-		var output = document.getElementById('fileList');
-		var children = "";
-		for (var i = 0; i < input.files.length; ++i) {
-			children += '<li>' + input.files.item(i).name + '</li>';
-		}
-		output.innerHTML = '<ul>' + children + '</ul>';
-	}
-</script>
-<body>
-	<h2>Login In</h2>
-	<form:form method="POST" action="${contextPath}/login"
-		modelAttribute="login" class="form-signin">
-		<span>${message}</span>
-		<p></p>
-		<spring:bind path="username">
-			<form:input type="text" path="username" class="form-control"
-				placeholder="Username" autofocus="true"></form:input>
-			<p></p>
-			<form:errors path="username"></form:errors>
-		</spring:bind>
-		<p></p>
-		<spring:bind path="password">
-			<form:input type="password" path="password" class="form-control"
-				placeholder="Password"></form:input>
-			<p></p>
-			<form:errors path="password"></form:errors>
-		</spring:bind>
-		<p></p>
+<script src="webjars/bootstrap/4.4.1-1/js/bootstrap.min.js"></script>
 
-		<input type="file" id="files" name="files" multiple="multiple"
-			accept="image/*" onchange="updateList()">
-		<p>Selected files:</p>
-		<div id="fileList"></div>
-		<button type="submit">Submit</button>
-		<h4>
+<body>
+	<div class="container">
+		<h2 class="form-signin-heading">Login in</h2>
+		<form:form method="POST" action="${contextPath}/login"
+			modelAttribute="login" class="form-signin">
+			<span>${message}</span>
+			<spring:bind path="username">
+				<div
+					class="${status.error ? 'invalid-feedback d-block' : 'form-group'}">
+					<form:input type="text" path="username" class="form-control"
+						placeholder="Username" autofocus="true"></form:input>
+					<form:errors path="username"></form:errors>
+				</div>
+			</spring:bind>
+			<spring:bind path="password">
+				<div
+					class="${status.error ? 'invalid-feedback d-block' : 'form-group'}">
+					<form:input type="password" path="password" class="form-control"
+						placeholder="Password"></form:input>
+					<form:errors path="password"></form:errors>
+				</div>
+			</spring:bind>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+		</form:form>
+		<h2 class="form-signin-heading">
 			<a href="${contextPath}/register">Create an account</a>
-		</h4>
-	</form:form>
+		</h2>
+	</div>
 </body>
+
 </html>

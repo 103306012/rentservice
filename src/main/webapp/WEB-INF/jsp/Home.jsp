@@ -13,8 +13,15 @@
 	<h4>
 		<a href="${contextPath}/logout">Logout</a>
 	</h4>
+	<ol>
+		<c:forEach items="${product.files}" var="image">
+			<li>${image.originalFilename}<img width="100"
+				src="<c:url value="/image/"/>${image.originalFilename}" />
+			</li>
+		</c:forEach>
+	</ol>
 	<h4>
-			<a href="${contextPath}/addproduct">新增租借商品</a>
-		</h4>
+		<a href="${contextPath}/addproduct">新增租借商品</a>
+	</h4>
 </body>
 </html>
