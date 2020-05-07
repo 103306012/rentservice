@@ -1,10 +1,9 @@
-package com.roy.register.model;
+package com.roy.user.model;
 
 import java.util.Date;
-
-import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class User {
@@ -12,15 +11,17 @@ public class User {
 	private String username;
 	@Size(min = 8, max = 12)
 	private String password;
+	@NotEmpty
 	private String name;
-	@Email
+	@NotEmpty
 	private String email;
+	@NotEmpty
 	private String address;
+	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date birth;
 
-	public User(@Size(min = 8, max = 12) String username, @Size(min = 8, max = 12) String password, String name,
-			@Email String email, String address, Date birth) {
+	public User(String username, String password, String name, String email, String address, Date birth) {
 		super();
 		this.username = username;
 		this.password = password;

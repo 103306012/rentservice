@@ -9,11 +9,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Login</title>
-<link rel="stylesheet"
-	href="webjars/bootstrap/4.4.1-1/css/bootstrap.min.css" />
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
 <link href="resources/css/common.css" rel="stylesheet">
 </head>
-<script src="webjars/bootstrap/4.4.1-1/js/bootstrap.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
 
 <body>
 	<div class="container">

@@ -1,4 +1,4 @@
-package com.roy.login.model;
+package com.roy.user.model;
 
 
 import javax.validation.constraints.Size;

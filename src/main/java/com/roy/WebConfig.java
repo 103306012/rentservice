@@ -21,7 +21,7 @@ public class WebConfig implements WebMvcConfigurer {
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(logininterceptor).excludePathPatterns("/", "/login", "/register", "/webjars/**",
+		registry.addInterceptor(logininterceptor).excludePathPatterns("/", "/login", "/register", "/bootstrap/**",
 				"/resources/**");
 	}
 
@@ -44,8 +44,8 @@ public class WebConfig implements WebMvcConfigurer {
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
-		registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/")
-				.resourceChain(false);
+		registry.addResourceHandler("/bootstrap/**")
+				.addResourceLocations("classpath:/META-INF/resources/webjars/bootstrap/4.4.1-1/").resourceChain(false);
 	}
 
 }
