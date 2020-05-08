@@ -9,10 +9,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Login</title>
-<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
-<link href="resources/css/common.css" rel="stylesheet">
+<link rel="stylesheet"
+	href="${contextPath}/bootstrap/css/bootstrap.min.css" />
+<link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 </head>
-<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="${contextPath}/bootstrap/js/bootstrap.min.js"></script>
 
 <body>
 	<div class="container">

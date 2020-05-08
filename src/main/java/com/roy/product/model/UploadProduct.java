@@ -1,33 +1,30 @@
 package com.roy.product.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Product {
-	private int id;
+import org.springframework.web.multipart.MultipartFile;
+
+public class UploadProduct implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String name;
 	private String type;
 	private String detail;
-	private List<String> files;
+	private List<MultipartFile> files;
 
-	public Product() {
+	public UploadProduct(String name, String type, String detail, List<MultipartFile> files) {
 		super();
-	}
-
-	public Product(int id, String name, String type, String detail, List<String> files) {
-		super();
-		this.id = id;
 		this.name = name;
 		this.type = type;
 		this.detail = detail;
 		this.files = files;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
+	public UploadProduct() {
+		super();
 	}
 
 	public String getName() {
@@ -54,11 +51,11 @@ public class Product {
 		this.detail = detail;
 	}
 
-	public List<String> getFiles() {
+	public List<MultipartFile> getFiles() {
 		return files;
 	}
 
-	public void setFiles(List<String> files) {
+	public void setFiles(List<MultipartFile> files) {
 		this.files = files;
 	}
 

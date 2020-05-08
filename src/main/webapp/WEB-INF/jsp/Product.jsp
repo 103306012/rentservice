@@ -8,8 +8,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Login</title>
+<title>新增商品</title>
+<link rel="stylesheet"
+	href="${contextPath}/bootstrap/css/bootstrap.min.css" />
+<link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 </head>
+<script src="bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	function updateList() {
 		var input = document.getElementById('files');
@@ -27,32 +31,35 @@
 	}
 </script>
 <body>
-	<form:form method="POST" action="${contextPath}/addproduct" enctype="multipart/form-data"
-		modelAttribute="product" class="form-signin">
-		<spring:bind path="name">
+	<div class="container">
+		<form:form method="POST" action="${contextPath}/uploadproduct"
+			enctype="multipart/form-data" modelAttribute="product"
+			class="form-signin">
+			<spring:bind path="name">
 			name:<form:input type="text" path="name" class="form-control"
-				autofocus="true"></form:input>
+					autofocus="true"></form:input>
+				<p></p>
+				<form:errors path="name"></form:errors>
+			</spring:bind>
 			<p></p>
-			<form:errors path="name"></form:errors>
-		</spring:bind>
-		<p></p>
-		<spring:bind path="type">
+			<spring:bind path="type">
 			type:<form:input type="text" path="type" class="form-control"></form:input>
+				<p></p>
+				<form:errors path="type"></form:errors>
+			</spring:bind>
 			<p></p>
-			<form:errors path="type"></form:errors>
-		</spring:bind>
-		<p></p>
 			detail:<form:textarea path="detail" />
-		<p></p>
-		<form:errors path="detail"></form:errors>
+			<p></p>
+			<form:errors path="detail"></form:errors>
 
-		<p></p>
+			<p></p>
 		file:<form:input type="file" path="files" multiple="multiple"
-			accept="image/*" onchange="updateList()"></form:input>
-		<p>Selected files:</p>
-		<div id="fileList"></div>
-		<button type="submit">Submit</button>
+				accept="image/*" onchange="updateList()"></form:input>
+			<p>Selected files:</p>
+			<div id="fileList"></div>
+			<button type="submit">Submit</button>
 
-	</form:form>
+		</form:form>
+	</div>
 </body>
 </html>
