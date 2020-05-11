@@ -1,48 +1,50 @@
-<!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Login</title>
+<meta charset="UTF-8">
+<title>Home</title>
 <link rel="stylesheet"
 	href="${contextPath}/bootstrap/css/bootstrap.min.css" />
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 </head>
 <script src="${contextPath}/bootstrap/js/bootstrap.min.js"></script>
-
 <body>
 	<div class="container">
-		<h2 class="form-signin-heading">Login in</h2>
-		<form:form method="POST" action="${contextPath}/login"
-			modelAttribute="login" class="form-signin">
-			<span>${message}</span>
-			<spring:bind path="username">
-				<div
-					class="${status.error ? 'invalid-feedback d-block' : 'form-group'}">
-					<form:input type="text" path="username" class="form-control"
-						placeholder="Username" autofocus="true"></form:input>
-					<form:errors path="username"></form:errors>
-				</div>
-			</spring:bind>
-			<spring:bind path="password">
-				<div
-					class="${status.error ? 'invalid-feedback d-block' : 'form-group'}">
-					<form:input type="password" path="password" class="form-control"
-						placeholder="Password"></form:input>
-					<form:errors path="password"></form:errors>
-				</div>
-			</spring:bind>
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-		</form:form>
-		<h2 class="form-signin-heading">
-			<a href="${contextPath}/register">Create an account</a>
-		</h2>
+		<c:choose>
+			<c:when test="${not empty sessionScope.login}">
+				<a href="${contextPath}/profile">My profile</a>
+				<a href="${contextPath}/logout">Logout</a>
+			</c:when>
+			<c:otherwise>
+				<a href="${contextPath}/register">register</a>
+				<a href="${contextPath}/login">login</a>
+			</c:otherwise>
+		</c:choose>
+
+
+
+		<h5>${sessionScope.login}Welcome</h5>
+		<div style="display: flex; flex-wrap: wrap">
+			<div style="width: 25%;">
+				<a href="${contextPath}/type/transport"> <img width="200"
+					height="200" src="<c:url value="/image/"/>transport.jpg" /> <br>
+					<span>交通</span>
+				</a>
+			</div>
+			<div style="width: 25%;">
+				<a href="${contextPath}/type/videogame"> <img width="200"
+					height="200" src="<c:url value="/image/"/>videogame.jpg" /> <br>
+					<span>電玩</span>
+				</a>
+			</div>
+		</div>
+		<h4>
+			<a href="${contextPath}/uploadproduct">新增租借商品</a>
+		</h4>
 	</div>
 </body>
-
 </html>

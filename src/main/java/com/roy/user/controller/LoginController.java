@@ -22,15 +22,15 @@ public class LoginController {
 	@Autowired
 	private UserService userservice;
 
-	@RequestMapping(value = { "/", "/login" }, method = RequestMethod.GET)
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String Index(HttpServletRequest request, Model model) {
 		if (userservice.checklogin(request)) {
-			return "redirect:/home";
+			return "redirect:/";
 		}
 		String referrer = request.getHeader("Referer");
 		request.getSession().setAttribute("url_prior_login", referrer);
 		model.addAttribute("login", new Login());
-		return "Index";
+		return "Login";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -38,9 +38,8 @@ public class LoginController {
 			HttpServletRequest request, Model model) {
 
 		if (!userservice.findacoount(login, bindingResult, request, model)) {
-			return "Index";
+			return "Login";
 		}
-		System.out.println(request.getSession().getAttribute("url_prior_login"));
 		return "redirect:" + request.getSession().getAttribute("url_prior_login");
 	}
 
@@ -71,9 +70,9 @@ public class LoginController {
 		return "Home";
 	}
 
-	@RequestMapping("/home2")
+	@RequestMapping("/")
 	public String home2(HttpServletRequest request, Model model) {
-		return "Home2";
+		return "Index";
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.roy.user.service;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -37,6 +39,16 @@ public class UserService {
 		HttpSession session = request.getSession(false);
 		session.setAttribute("login", login.getUsername());
 		return true;
+	}
+
+	public void getprofile(Model model, String username) {
+		User user = new User();
+		user.setUsername(username);
+		user.setName("Roy");
+		user.setAddress("桃園市");
+		user.setBirth(new Date());
+		user.setEmail("roylove1258@gmail.com");
+		model.addAttribute("user", user);
 	}
 
 	public void logout(HttpServletRequest request, RedirectAttributes redirAttr) {
