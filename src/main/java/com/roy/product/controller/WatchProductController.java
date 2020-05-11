@@ -34,6 +34,7 @@ public class WatchProductController {
 			List<String> list = new ArrayList();
 			list.add("xbox-1.jpg");
 			list.add("xbox-2.jpg");
+			p.setFiles(list);
 		}
 		model.addAttribute("product", p);
 		return "WatchProduct";

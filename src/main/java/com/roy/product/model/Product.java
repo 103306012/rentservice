@@ -6,6 +6,7 @@ public class Product {
 	private int id;
 	private String name;
 	private String type;
+	private String price;
 	private String detail;
 	private List<String> files;
 
@@ -13,11 +14,12 @@ public class Product {
 		super();
 	}
 
-	public Product(int id, String name, String type, String detail, List<String> files) {
+	public Product(int id, String name, String type, String price, String detail, List<String> files) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.type = type;
+		this.price = price;
 		this.detail = detail;
 		this.files = files;
 	}
@@ -44,6 +46,14 @@ public class Product {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public String getPrice() {
+		return price;
+	}
+
+	public void setPrice(String price) {
+		this.price = price;
 	}
 
 	public String getDetail() {

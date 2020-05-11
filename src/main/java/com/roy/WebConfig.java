@@ -16,6 +16,7 @@ import org.springframework.validation.Validator;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
+	/*
 	@Autowired
 	LoginInterceptor logininterceptor;
 
@@ -24,7 +25,7 @@ public class WebConfig implements WebMvcConfigurer {
 		registry.addInterceptor(logininterceptor).excludePathPatterns("/", "/login", "/register", "/bootstrap/**",
 				"/resources/**");
 	}
-
+	 */
 	@Bean
 	public MessageSource messageSource() {
 		ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();

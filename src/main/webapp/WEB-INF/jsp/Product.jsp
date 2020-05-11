@@ -48,6 +48,13 @@
 				<form:errors path="type"></form:errors>
 			</spring:bind>
 			<p></p>
+			<spring:bind path="price">
+			price:<form:input type="text" path="price" class="form-control"></form:input>
+			/每日
+				<p></p>
+				<form:errors path="price"></form:errors>
+			</spring:bind>
+			<p></p>
 			detail:<form:textarea path="detail" />
 			<p></p>
 			<form:errors path="detail"></form:errors>

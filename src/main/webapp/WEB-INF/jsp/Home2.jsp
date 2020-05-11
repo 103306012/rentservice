@@ -28,15 +28,18 @@
 
 		<h5>${sessionScope.login}Welcome</h5>
 		<div style="display: flex; flex-wrap: wrap">
-			<c:forEach items="${productlist}" var="product">
-				<div style="width: 50%;">
-					<a href="${contextPath}/watchproduct/${product.getId()}"> <img
-						width="200" height="200"
-						src="<c:url value="/image/"/>${product.getFiles().get(0)}" /> <br>
-						<span>${product.getName()}</span>
-					</a>
-				</div>
-			</c:forEach>
+			<div style="width: 25%;">
+				<a href="${contextPath}/type/transport"> <img width="200"
+					height="200" src="<c:url value="/image/"/>transport.jpg" /> <br>
+					<span>交通</span>
+				</a>
+			</div>
+			<div style="width: 25%;">
+				<a href="${contextPath}/type/videogame"> <img width="200"
+					height="200" src="<c:url value="/image/"/>videogame.jpg" /> <br>
+					<span>電玩</span>
+				</a>
+			</div>
 		</div>
 		<h4>
 			<a href="${contextPath}/uploadproduct">新增租借商品</a>

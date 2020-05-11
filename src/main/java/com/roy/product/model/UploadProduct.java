@@ -12,19 +12,21 @@ public class UploadProduct implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String name;
 	private String type;
+	private String price;
 	private String detail;
 	private List<MultipartFile> files;
 
-	public UploadProduct(String name, String type, String detail, List<MultipartFile> files) {
+	public UploadProduct(String name, String type, String price, String detail, List<MultipartFile> files) {
 		super();
 		this.name = name;
 		this.type = type;
+		this.price = price;
 		this.detail = detail;
 		this.files = files;
 	}
 
 	public UploadProduct() {
-		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	public String getName() {
@@ -43,6 +45,14 @@ public class UploadProduct implements Serializable {
 		this.type = type;
 	}
 
+	public String getPrice() {
+		return price;
+	}
+
+	public void setPrice(String price) {
+		this.price = price;
+	}
+
 	public String getDetail() {
 		return detail;
 	}
@@ -57,6 +67,10 @@ public class UploadProduct implements Serializable {
 
 	public void setFiles(List<MultipartFile> files) {
 		this.files = files;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }

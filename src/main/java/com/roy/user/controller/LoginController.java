@@ -27,6 +27,8 @@ public class LoginController {
 		if (userservice.checklogin(request)) {
 			return "redirect:/home";
 		}
+		String referrer = request.getHeader("Referer");
+		request.getSession().setAttribute("url_prior_login", referrer);
 		model.addAttribute("login", new Login());
 		return "Index";
 	}
@@ -34,10 +36,12 @@ public class LoginController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(@ModelAttribute("login") @Valid Login login, BindingResult bindingResult,
 			HttpServletRequest request, Model model) {
+
 		if (!userservice.findacoount(login, bindingResult, request, model)) {
 			return "Index";
 		}
-		return "redirect:/home";
+		System.out.println(request.getSession().getAttribute("url_prior_login"));
+		return "redirect:" + request.getSession().getAttribute("url_prior_login");
 	}
 
 	@RequestMapping("/logout")
@@ -66,4 +70,10 @@ public class LoginController {
 		model.addAttribute("productlist", list);
 		return "Home";
 	}
+
+	@RequestMapping("/home2")
+	public String home2(HttpServletRequest request, Model model) {
+		return "Home2";
+	}
+
 }
