@@ -14,11 +14,14 @@ public class LoginInterceptor implements HandlerInterceptor {
 	@Autowired
 	private UserService userservice;
 
-	/*
-	 * @Override public boolean preHandle(HttpServletRequest request,
-	 * HttpServletResponse response, Object handler) throws Exception { if
-	 * (!userservice.checklogin(request)) { response.sendRedirect("/"); return
-	 * false; } return true; }
-	 */
-	
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
+		if (!userservice.checklogin(request)) {
+			response.sendRedirect("/login");
+			return false;
+		}
+		return true;
+	}
+
 }

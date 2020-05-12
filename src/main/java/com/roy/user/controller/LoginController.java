@@ -45,8 +45,8 @@ public class LoginController {
 
 	@RequestMapping("/logout")
 	public String logout(HttpServletRequest request, RedirectAttributes redirAttr) {
-		userservice.logout(request, redirAttr);
-		return "redirect:/";
+
+		return "redirect:" + userservice.logout(request, redirAttr);
 	}
 
 	@RequestMapping("/home")

@@ -14,6 +14,7 @@
 </head>
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <body>
+	<jsp:include page="TopBar.jsp"></jsp:include>
 	<h2 class="form-signin-heading">Register</h2>
 	<form:form method="POST" action="${contextPath}/register"
 		modelAttribute="user" class="form-signin">

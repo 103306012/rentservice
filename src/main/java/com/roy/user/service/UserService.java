@@ -51,10 +51,12 @@ public class UserService {
 		model.addAttribute("user", user);
 	}
 
-	public void logout(HttpServletRequest request, RedirectAttributes redirAttr) {
+	public String logout(HttpServletRequest request, RedirectAttributes redirAttr) {
+		String referrer = request.getHeader("Referer");
 		HttpSession session = request.getSession();
 		session.invalidate();
 		redirAttr.addFlashAttribute("message", "成功登出");
+		return referrer;
 	}
 
 	public boolean register(User user, Errors error, HttpServletRequest request, Model model,

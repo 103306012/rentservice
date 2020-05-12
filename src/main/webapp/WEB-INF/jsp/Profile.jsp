@@ -13,6 +13,7 @@
 <script src="${contextPath}/bootstrap/js/bootstrap.min.js"></script>
 <body>
 	<div class="container">
+		<jsp:include page="TopBar.jsp"></jsp:include>
 		<div class="form-signin">
 			<h5>${user.getUsername()}</h5>
 			<h5>${user.getName()}</h5>

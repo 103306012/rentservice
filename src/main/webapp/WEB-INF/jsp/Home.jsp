@@ -14,18 +14,7 @@
 <script src="${contextPath}/bootstrap/js/bootstrap.min.js"></script>
 <body>
 	<div class="container">
-		<c:choose>
-			<c:when test="${not empty sessionScope.login}">
-				<a href="${contextPath}/logout">Logout</a>
-			</c:when>
-			<c:otherwise>
-				<a href="${contextPath}/register">register</a>
-				<a href="${contextPath}/login">login</a>
-			</c:otherwise>
-		</c:choose>
-
-
-
+		<jsp:include page="TopBar.jsp"></jsp:include>
 		<h5>${sessionScope.login}Welcome</h5>
 		<div style="display: flex; flex-wrap: wrap">
 			<c:forEach items="${productlist}" var="product">

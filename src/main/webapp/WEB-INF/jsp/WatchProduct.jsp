@@ -14,9 +14,11 @@
 <script src="${contextPath}/bootstrap/js/bootstrap.min.js"></script>
 <body>
 	<div class="container">
+		<jsp:include page="TopBar.jsp"></jsp:include>
 		<div class="form-signin">
 			<h5>${product.getType()}</h5>
-			<h5>${product.getId()}</h5>
+			<h5>${product.getName()}</h5>
+			<h5>${product.getPrice()}元/1天</h5>
 			<h5>${product.getDetail()}</h5>
 			<c:forEach items="${product.getFiles()}" var="file">
 				<div>

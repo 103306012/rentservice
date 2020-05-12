@@ -21,6 +21,7 @@ public class WatchProductController {
 			p.setId(productid);
 			p.setName("PS4");
 			p.setType("電動");
+			p.setPrice("100");
 			p.setDetail("最新PS4");
 			List<String> list = new ArrayList();
 			list.add("ps4-1.jpg");
@@ -30,6 +31,7 @@ public class WatchProductController {
 			p.setId(productid);
 			p.setName("XBOX");
 			p.setType("電動");
+			p.setPrice("100");
 			p.setDetail("最新XBOXS");
 			List<String> list = new ArrayList();
 			list.add("xbox-1.jpg");

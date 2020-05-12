@@ -17,10 +17,10 @@
 
 <body>
 	<div class="container">
+		<jsp:include page="TopBar.jsp"></jsp:include>
 		<h2 class="form-signin-heading">Login in</h2>
 		<form:form method="POST" action="${contextPath}/login"
 			modelAttribute="login" class="form-signin">
-			<span>${message}</span>
 			<spring:bind path="username">
 				<div
 					class="${status.error ? 'invalid-feedback d-block' : 'form-group'}">
