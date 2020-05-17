@@ -9,13 +9,15 @@
 <title>Home</title>
 <link rel="stylesheet"
 	href="${contextPath}/bootstrap/css/bootstrap.min.css" />
-<link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 </head>
 <script src="${contextPath}/bootstrap/js/bootstrap.min.js"></script>
 <body>
+	<jsp:include page="TopBar.jsp"></jsp:include>
 	<div class="container">
-		<jsp:include page="TopBar.jsp"></jsp:include>
 		<h5>${sessionScope.login}Welcome</h5>
+		<h4>
+			<a href="${contextPath}/uploadproduct">新增租借商品</a>
+		</h4>
 		<div style="display: flex; flex-wrap: wrap">
 			<c:forEach items="${productlist}" var="product">
 				<div style="width: 50%;">
@@ -27,9 +29,6 @@
 				</div>
 			</c:forEach>
 		</div>
-		<h4>
-			<a href="${contextPath}/uploadproduct">新增租借商品</a>
-		</h4>
 	</div>
 </body>
 </html>

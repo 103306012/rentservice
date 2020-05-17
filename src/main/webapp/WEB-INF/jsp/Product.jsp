@@ -31,8 +31,8 @@
 	}
 </script>
 <body>
+	<jsp:include page="TopBar.jsp"></jsp:include>
 	<div class="container">
-		<jsp:include page="TopBar.jsp"></jsp:include>
 		<form:form method="POST" action="${contextPath}/uploadproduct"
 			enctype="multipart/form-data" modelAttribute="product"
 			class="form-signin">

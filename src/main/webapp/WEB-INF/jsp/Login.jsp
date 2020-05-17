@@ -16,8 +16,8 @@
 <script src="${contextPath}/bootstrap/js/bootstrap.min.js"></script>
 
 <body>
+	<jsp:include page="TopBar.jsp"></jsp:include>
 	<div class="container">
-		<jsp:include page="TopBar.jsp"></jsp:include>
 		<h2 class="form-signin-heading">Login in</h2>
 		<form:form method="POST" action="${contextPath}/login"
 			modelAttribute="login" class="form-signin">
