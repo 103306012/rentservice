@@ -15,10 +15,6 @@
 	<jsp:include page="TopBar.jsp"></jsp:include>
 	<div class="container">
 		<span>${message}</span>
-		<h4>
-			<a href="${contextPath}/uploadproduct">新增租借商品</a>
-		</h4>
-
 	</div>
 </body>
 </html>

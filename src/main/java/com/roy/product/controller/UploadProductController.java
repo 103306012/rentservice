@@ -23,7 +23,7 @@ public class UploadProductController {
 	@GetMapping
 	public String initialview(Model model) {
 		UploadProduct p = new UploadProduct();
-		p.setDetail(" ");
+		p.setDetail("商品內容");
 		model.addAttribute("product", p);
 		return "Product";
 	}

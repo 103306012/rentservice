@@ -53,6 +53,7 @@ img {
 
 .form-signin-heading {
 	text-align: center;
+	vertical-align: middle;
 }
 
 .form-signin .form-control {
@@ -163,7 +164,6 @@ ul, ol {
 .user-panel .up-item:first-child {
 	margin-right: 29px;
 }
-
 
 .main-navbar {
 	background: #282828;

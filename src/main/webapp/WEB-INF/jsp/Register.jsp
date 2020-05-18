@@ -10,12 +10,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Register</title>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
-<link href="resources/css/common.css" rel="stylesheet">
+<link href="resources/css/style.css" rel="stylesheet">
 </head>
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <body>
-	<jsp:include page="TopBar.jsp"></jsp:include>
-	<h2 class="form-signin-heading">Register</h2>
+	<div class="form-signin-heading">
+		<a href="${contextPath}/"> <img src="/image/logo.jpg">
+		</a>
+	</div>
 	<form:form method="POST" action="${contextPath}/register"
 		modelAttribute="user" class="form-signin">
 		<p></p>
@@ -23,7 +25,7 @@
 			<div
 				class="${status.error ? 'invalid-feedback d-block' : 'form-group'}">
 				<form:input type="text" path="username" class="form-control"
-					placeholder="Username" autofocus="true"></form:input>
+					placeholder="帳號" autofocus="true"></form:input>
 				<form:errors path="username"></form:errors>
 			</div>
 		</spring:bind>
@@ -32,7 +34,7 @@
 			<div
 				class="${status.error ? 'invalid-feedback d-block' : 'form-group'}">
 				<form:input type="password" path="password" class="form-control"
-					placeholder="Password"></form:input>
+					placeholder="密碼"></form:input>
 				<form:errors path="password"></form:errors>
 			</div>
 		</spring:bind>
@@ -41,7 +43,7 @@
 			<div
 				class="${status.error ? 'invalid-feedback d-block' : 'form-group'}">
 				<form:input type="text" path="name" class="form-control"
-					placeholder="name"></form:input>
+					placeholder="姓名"></form:input>
 				<form:errors path="name"></form:errors>
 			</div>
 		</spring:bind>
@@ -58,7 +60,9 @@
 		<spring:bind path="birth">
 			<div
 				class="${status.error ? 'invalid-feedback d-block' : 'form-group'}">
-				<form:input type="date" path="birth" class="form-control"></form:input>
+				<form:input type="text" path="birth" class="form-control"
+					placeholder="出生日期" onfocus="(this.type='date')"
+					onblur="(this.type='text')"></form:input>
 				<form:errors path="birth"></form:errors>
 			</div>
 		</spring:bind>
@@ -67,12 +71,12 @@
 			<div
 				class="${status.error ? 'invalid-feedback d-block' : 'form-group'}">
 				<form:input type="text" path="address" class="form-control"
-					placeholder="address"></form:input>
+					placeholder="地址"></form:input>
 				<form:errors path="address"></form:errors>
 			</div>
 		</spring:bind>
 		<p></p>
-		<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+		<button class="btn btn-lg btn-primary btn-block" type="submit">註冊</button>
 	</form:form>
 </body>
 </html>

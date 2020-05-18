@@ -45,8 +45,9 @@
 										<ul class="main-menu">
 											<li><a href="${contextPath}/profile">${sessionScope.login}</a>
 												<ul class="sub-menu">
-													<li><a href="${contextPath}/profile">My profile</a></li>
-													<li><a href="${contextPath}/logout">Sign out</a></li>
+													<li><a href="${contextPath}/profile">我的資料</a></li>
+													<li><a href="${contextPath}/uploadproduct">新增租借商品</a></li>
+													<li><a href="${contextPath}/logout">登出</a></li>
 												</ul></li>
 										</ul>
 									</nav>

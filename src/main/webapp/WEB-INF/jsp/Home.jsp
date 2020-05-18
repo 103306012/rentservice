@@ -13,19 +13,17 @@
 <script src="${contextPath}/bootstrap/js/bootstrap.min.js"></script>
 <body>
 	<jsp:include page="TopBar.jsp"></jsp:include>
+	<p></p>
 	<div class="container">
-		<h5>${sessionScope.login}Welcome</h5>
-		<h4>
-			<a href="${contextPath}/uploadproduct">新增租借商品</a>
-		</h4>
 		<div style="display: flex; flex-wrap: wrap">
 			<c:forEach items="${productlist}" var="product">
-				<div style="width: 50%;">
+				<div style="width: 33%;">
 					<a href="${contextPath}/watchproduct/${product.getId()}"> <img
 						width="200" height="200"
 						src="<c:url value="/image/"/>${product.getFiles().get(0)}" /> <br>
 						<span>${product.getName()}</span>
 					</a>
+					<p></p>
 				</div>
 			</c:forEach>
 		</div>

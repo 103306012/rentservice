@@ -19,7 +19,7 @@
 		var input = document.getElementById('files');
 		if (input.files.length > 5) {
 			input.value = '';
-			alert('to many files')
+			alert('上傳圖片數量不得穿過5張')
 			return;
 		}
 		var output = document.getElementById('fileList');
@@ -27,7 +27,7 @@
 		for (var i = 0; i < input.files.length; ++i) {
 			children += '<li>' + input.files.item(i).name + '</li>';
 		}
-		output.innerHTML = '<ul>' + children + '</ul>';
+		output.innerHTML = '<ul style="list-style:none;">' + children + '</ul>';
 	}
 </script>
 <body>
@@ -37,35 +37,37 @@
 			enctype="multipart/form-data" modelAttribute="product"
 			class="form-signin">
 			<spring:bind path="name">
-			name:<form:input type="text" path="name" class="form-control"
-					autofocus="true"></form:input>
+				<form:input type="text" path="name" class="form-control"
+					placeholder="名稱" autofocus="true"></form:input>
 				<p></p>
 				<form:errors path="name"></form:errors>
 			</spring:bind>
 			<p></p>
 			<spring:bind path="type">
-			type:<form:input type="text" path="type" class="form-control"></form:input>
+				<form:input type="text" path="type" class="form-control"
+					placeholder="類型"></form:input>
 				<p></p>
 				<form:errors path="type"></form:errors>
 			</spring:bind>
 			<p></p>
 			<spring:bind path="price">
-			price:<form:input type="text" path="price" class="form-control"></form:input>
-			/每日
+				<form:input type="text" path="price" class="form-control"
+					placeholder="價格/每日"></form:input>
 				<p></p>
 				<form:errors path="price"></form:errors>
 			</spring:bind>
 			<p></p>
-			detail:<form:textarea path="detail" />
+			<form:textarea path="detail" style="width: 470px;" />
 			<p></p>
 			<form:errors path="detail"></form:errors>
 
 			<p></p>
-		file:<form:input type="file" path="files" multiple="multiple"
-				accept="image/*" onchange="updateList()"></form:input>
-			<p>Selected files:</p>
+			<form:label path="files" class="btn btn-sm btn-dark">選擇商品圖片</form:label>
+			<form:input type="file" path="files" multiple="multiple"
+				accept="image/*" onchange="updateList()" style="visibility:hidden;"></form:input>
+			<p>圖片:</p>
 			<div id="fileList"></div>
-			<button type="submit">Submit</button>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">新增</button>
 
 		</form:form>
 	</div>

@@ -11,21 +11,23 @@
 <title>Login</title>
 <link rel="stylesheet"
 	href="${contextPath}/bootstrap/css/bootstrap.min.css" />
-<link href="${contextPath}/resources/css/common.css" rel="stylesheet">
+<link href="${contextPath}/resources/css/style.css" rel="stylesheet">
 </head>
 <script src="${contextPath}/bootstrap/js/bootstrap.min.js"></script>
 
 <body>
-	<jsp:include page="TopBar.jsp"></jsp:include>
 	<div class="container">
-		<h2 class="form-signin-heading">Login in</h2>
+		<div class="form-signin-heading">
+			<a href="${contextPath}/"> <img src="/image/logo.jpg">
+			</a>
+		</div>
 		<form:form method="POST" action="${contextPath}/login"
 			modelAttribute="login" class="form-signin">
 			<spring:bind path="username">
 				<div
 					class="${status.error ? 'invalid-feedback d-block' : 'form-group'}">
 					<form:input type="text" path="username" class="form-control"
-						placeholder="Username" autofocus="true"></form:input>
+						placeholder="帳號" autofocus="true"></form:input>
 					<form:errors path="username"></form:errors>
 				</div>
 			</spring:bind>
@@ -33,14 +35,14 @@
 				<div
 					class="${status.error ? 'invalid-feedback d-block' : 'form-group'}">
 					<form:input type="password" path="password" class="form-control"
-						placeholder="Password"></form:input>
+						placeholder="密碼"></form:input>
 					<form:errors path="password"></form:errors>
 				</div>
 			</spring:bind>
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">登入</button>
 		</form:form>
 		<h2 class="form-signin-heading">
-			<a href="${contextPath}/register">Create an account</a>
+			<a href="${contextPath}/register">註冊</a>
 		</h2>
 	</div>
 </body>

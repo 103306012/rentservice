@@ -26,6 +26,7 @@
 				</div>
 				<br>
 			</c:forEach>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">租借</button>
 		</div>
 	</div>
 </body>
