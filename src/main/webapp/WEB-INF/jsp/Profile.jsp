@@ -15,11 +15,12 @@
 	<jsp:include page="TopBar.jsp"></jsp:include>
 	<div class="container">
 		<div class="form-signin">
-			<h5>${user.getUsername()}</h5>
-			<h5>${user.getName()}</h5>
-			<h5>${user.getEmail()}</h5>
-			<h5>${user.getAddress()}</h5>
-			<h5>${user.getBirth()}</h5>
+			<h2>我的資料</h2>
+			<h2>帳號:${user.getUsername()}</h2>
+			<h2>姓名:${user.getName()}</h2>
+			<h2>Email:${user.getEmail()}</h2>
+			<h2>地址:${user.getAddress()}</h2>
+			<h2>生日:${user.getBirth()}</h2>
 		</div>
 	</div>
 </body>

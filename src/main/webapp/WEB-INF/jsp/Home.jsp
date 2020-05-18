@@ -21,7 +21,8 @@
 					<a href="${contextPath}/watchproduct/${product.getId()}"> <img
 						width="200" height="200"
 						src="<c:url value="/image/"/>${product.getFiles().get(0)}" /> <br>
-						<span>${product.getName()}</span>
+						<h6 style="text-align: center;">${product.getName()}</h6>
+						<h6 style="text-align: center;">35元</h6>
 					</a>
 					<p></p>
 				</div>
