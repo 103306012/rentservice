@@ -33,6 +33,7 @@
 <body>
 	<jsp:include page="TopBar.jsp"></jsp:include>
 	<div class="container">
+		<h2 style="text-align: center;">新增商品</h2>
 		<form:form method="POST" action="${contextPath}/uploadproduct"
 			enctype="multipart/form-data" modelAttribute="product"
 			class="form-signin">

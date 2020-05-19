@@ -16,10 +16,9 @@
 	<jsp:include page="TopBar.jsp"></jsp:include>
 	<div class="container">
 		<div class="form-signin">
-			<h5>${product.getType()}</h5>
-			<h5>${product.getName()}</h5>
-			<h5>${product.getPrice()}元/1天</h5>
-			<h5>${product.getDetail()}</h5>
+			<h2>商品名稱:${product.getName()}</h2>
+			<h2>價格:${product.getPrice()}元/1天</h2>
+			<h2>商品內容:${product.getDetail()}</h2>
 			<c:forEach items="${product.getFiles()}" var="file">
 				<div>
 					<img width="200" height="200" src="<c:url value="/image/"/>${file}" />
