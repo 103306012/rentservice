@@ -40,10 +40,10 @@
 						<c:choose>
 							<c:when test="${not empty sessionScope.login}">
 								<div class="up-item">
-									<i class="flaticon-profile"></i>
 									<nav style="display: inline-block">
 										<ul class="main-menu">
-											<li><a href="${contextPath}/profile">${sessionScope.login}</a>
+											<li><i class="flaticon-profile"></i><a
+												href="${contextPath}/profile">${sessionScope.login}</a>
 												<ul class="sub-menu">
 													<li><a href="${contextPath}/profile">我的資料</a></li>
 													<li><a href="${contextPath}/uploadproduct">新增租借商品</a></li>
