@@ -15,6 +15,7 @@
 	<jsp:include page="TopBar.jsp"></jsp:include>
 	<div class="container">
 		<span>${message}</span>
+	
 	</div>
 </body>
 </html>

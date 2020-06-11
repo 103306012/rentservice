@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,10 +37,12 @@ public class LoginController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(@ModelAttribute("login") @Valid Login login, BindingResult bindingResult,
 			HttpServletRequest request, Model model) {
-
-		if (!userservice.findacoount(login, bindingResult, request, model)) {
+		if (bindingResult.hasErrors() || !userservice.findacoount(login, bindingResult)) {
 			return "Login";
 		}
+		request.changeSessionId();
+		HttpSession session = request.getSession(false);
+		session.setAttribute("login", login.getUsername());
 		return "redirect:" + request.getSession().getAttribute("url_prior_login");
 	}
 
@@ -49,7 +52,7 @@ public class LoginController {
 		return "redirect:" + userservice.logout(request, redirAttr);
 	}
 
-	@RequestMapping("/home")
+	@GetMapping(value = { "/home", "/" })
 	public String home(HttpServletRequest request, Model model) {
 		List<Product> list = new ArrayList();
 		Product p1 = new Product();
@@ -67,12 +70,32 @@ public class LoginController {
 		list.add(p1);
 		list.add(p2);
 		model.addAttribute("productlist", list);
+		model.addAttribute("noOfPages", 10);
+		model.addAttribute("currentPage", "1");
 		return "Home";
 	}
 
-	@RequestMapping("/")
-	public String home2(HttpServletRequest request, Model model) {
-		return "Index";
+	@GetMapping(value = "/home/{page}")
+	public String home(@PathVariable(required = true) int page, Model model) {
+		List<Product> list = new ArrayList();
+		Product p1 = new Product();
+		Product p2 = new Product();
+		p1.setId(1);
+		p2.setId(2);
+		p1.setName("ps4");
+		p2.setName("xboxs");
+		List<String> filelist = new ArrayList();
+		filelist.add("ps4-1.jpg");
+		p1.setFiles(filelist);
+		filelist = new ArrayList();
+		filelist.add("xbox-1.jpg");
+		p2.setFiles(filelist);
+		list.add(p1);
+		list.add(p2);
+		model.addAttribute("productlist", list);
+		model.addAttribute("noOfPages", 10);
+		model.addAttribute("currentPage", page);
+		return "Home";
 	}
 
 }

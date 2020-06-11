@@ -17,7 +17,7 @@ public class RegisterController {
 	private UserService userservice;
 
 	@RequestMapping(value = { "/register" }, method = RequestMethod.GET)
-	public String index(HttpServletRequest request, Model model) {
+	public String toRegisterPage(HttpServletRequest request, Model model) {
 		String referrer = request.getHeader("Referer");
 		request.getSession().setAttribute("url_prior_register", referrer);
 		if (userservice.checklogin(request)) {
@@ -30,9 +30,10 @@ public class RegisterController {
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String register(@ModelAttribute("user") @Valid User user, BindingResult bindingResult,
 			HttpServletRequest request, Model model, RedirectAttributes redirAttr) {
-		if (!userservice.register(user, bindingResult, request, model, redirAttr)) {
+		if (bindingResult.hasErrors() || !userservice.register(user, bindingResult)) {
 			return "Register";
 		}
+		redirAttr.addFlashAttribute("message", "註冊成功");
 		return "redirect:" + request.getSession().getAttribute("url_prior_register");
 	}
 

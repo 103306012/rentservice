@@ -28,6 +28,46 @@
 				</div>
 			</c:forEach>
 		</div>
+		<nav aria-label="Page navigation example">
+			<ul class="pagination justify-content-center">
+				<c:choose>
+					<c:when test="${currentPage != 1}">
+						<li class="page-item">
+					</c:when>
+					<c:otherwise>
+						<li class="page-item disabled">
+					</c:otherwise>
+				</c:choose>
+				<a class="page-link" href="${contextPath}/home/${currentPage - 1}"
+					tabindex="-1" aria-disabled="true">Previous</a>
+				</li>
+				<c:forEach begin="1" end="${noOfPages}" var="i">
+					<c:choose>
+						<c:when test="${currentPage eq i}">
+							<li class="page-item active" aria-current="page"><a
+								class="page-link" href="${contextPath}/home/${i}">${i}<span
+									class="sr-only">(current)</span></a></li>
+						</c:when>
+						<c:otherwise>
+							<li class="page-item">
+							<li class="page-item"><a class="page-link"
+								href="${contextPath}/home/${i}">${i}</a></li>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+				<c:choose>
+					<c:when test="${currentPage lt noOfPages}">
+						<li class="page-item">
+					</c:when>
+					<c:otherwise>
+						<li class="page-item disabled">
+					</c:otherwise>
+				</c:choose>
+				<a class="page-link" href="${contextPath}/home/${currentPage + 1}"
+					tabindex="-1" aria-disabled="true">Next</a>
+				</li>
+			</ul>
+		</nav>
 	</div>
 </body>
 </html>

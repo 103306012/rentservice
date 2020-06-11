@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.roy.user.model.User;
 import com.roy.user.service.UserService;
 
 @Controller
@@ -19,7 +20,8 @@ public class ProfileController {
 	@GetMapping
 	public String getprofile(HttpServletRequest request, Model model) {
 		String username = (String) request.getSession().getAttribute("login");
-		userservice.getprofile(model, username);
+		User user = userservice.getprofile(username);
+		model.addAttribute("user", user);
 		return "Profile";
 	}
 }
