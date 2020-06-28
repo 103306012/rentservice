@@ -40,10 +40,13 @@
 				</div>
 			</spring:bind>
 			<button class="btn btn-lg btn-primary btn-block" type="submit">登入</button>
+			<br>
+			<a href="${contextPath}/register"><button
+					class="btn btn-lg btn-primary btn-block" type="button">註冊</button></a>
 		</form:form>
-		<h2 class="form-signin-heading">
-			<a href="${contextPath}/register">註冊</a>
-		</h2>
+
+
+
 	</div>
 </body>
 

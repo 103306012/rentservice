@@ -47,6 +47,7 @@
 												<ul class="sub-menu">
 													<li><a href="${contextPath}/profile">我的資料</a></li>
 													<li><a href="${contextPath}/uploadproduct">新增租借商品</a></li>
+													<li><a href="${contextPath}/rentlist">租借清單</a></li>
 													<li><a href="${contextPath}/logout">登出</a></li>
 												</ul></li>
 										</ul>
@@ -77,14 +78,14 @@
 		<div class="container">
 			<!-- menu -->
 			<ul class="main-menu">
-				<li><a href="${contextPath}/type/transport">交通</a></li>
-				<li><a href="${contextPath}/type/videogame">電玩</a></li>
-				<li><a href="${contextPath}/type/travel">旅遊</a></li>
-				<li><a href="${contextPath}/type/dress">服飾 </a></li>
-				<li><a href="${contextPath}/type/audiovideo">影音</a></li>
-				<li><a href="${contextPath}/type/book">書籍</a></li>
-				<li><a href="${contextPath}/type/3c">3C電子</a></li>
-				<li><a href="${contextPath}/type/other">其他</a></li>
+				<li><a href="${contextPath}/category/transport">交通</a></li>
+				<li><a href="${contextPath}/category/videogame">電玩</a></li>
+				<li><a href="${contextPath}/category/travel">旅遊</a></li>
+				<li><a href="${contextPath}/category/dress">服飾 </a></li>
+				<li><a href="${contextPath}/category/audiovideo">影音</a></li>
+				<li><a href="${contextPath}/category/book">書籍</a></li>
+				<li><a href="${contextPath}/category/3c">3C電子</a></li>
+				<li><a href="${contextPath}/category/other">其他</a></li>
 			</ul>
 		</div>
 	</nav>

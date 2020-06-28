@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rentservice.dao.ImgMapper">
+
+	<insert id="insertImgList"
+		parameterType="com.rentservice.model.Product">
+		insert into
+		img(product_id,url)values
+		<foreach collection="product.files" item="file" separator=","
+			close=";">
+			(#{product.product_id},#{file})
+		</foreach>
+	</insert>
+
+</mapper>

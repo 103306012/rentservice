@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Home</title>
+<title>RentService</title>
 <link rel="stylesheet"
 	href="${contextPath}/bootstrap/css/bootstrap.min.css" />
 </head>
@@ -18,8 +18,8 @@
 		<div style="display: flex; flex-wrap: wrap">
 			<c:forEach items="${productlist}" var="product">
 				<div style="width: 33%;">
-					<a href="${contextPath}/watchproduct/${product.getId()}"> <img
-						width="200" height="200"
+					<a href="${contextPath}/viewproduct/${product.getProduct_id()}">
+						<img width="200" height="200"
 						src="<c:url value="/image/"/>${product.getFiles().get(0)}" /> <br>
 						<h6 style="text-align: center;">${product.getName()}</h6>
 						<h6 style="text-align: center;">35元</h6>
@@ -32,15 +32,17 @@
 			<ul class="pagination justify-content-center">
 				<c:choose>
 					<c:when test="${currentPage != 1}">
-						<li class="page-item">
+						<li class="page-item"><a class="page-link"
+							href="${contextPath}/home/${currentPage - 1}" tabindex="-1"
+							aria-disabled="true">Previous</a></li>
 					</c:when>
 					<c:otherwise>
-						<li class="page-item disabled">
+						<li class="page-item disabled"><a class="page-link"
+							href="${contextPath}/home/${currentPage - 1}" tabindex="-1"
+							aria-disabled="true">Previous</a></li>
 					</c:otherwise>
 				</c:choose>
-				<a class="page-link" href="${contextPath}/home/${currentPage - 1}"
-					tabindex="-1" aria-disabled="true">Previous</a>
-				</li>
+
 				<c:forEach begin="1" end="${noOfPages}" var="i">
 					<c:choose>
 						<c:when test="${currentPage eq i}">
@@ -57,15 +59,17 @@
 				</c:forEach>
 				<c:choose>
 					<c:when test="${currentPage lt noOfPages}">
-						<li class="page-item">
+						<li class="page-item"><a class="page-link"
+							href="${contextPath}/home/${currentPage + 1}" tabindex="-1"
+							aria-disabled="true">Next</a></li>
 					</c:when>
 					<c:otherwise>
-						<li class="page-item disabled">
+						<li class="page-item disabled"><a class="page-link"
+							href="${contextPath}/home/${currentPage + 1}" tabindex="-1"
+							aria-disabled="true">Next</a></li>
 					</c:otherwise>
 				</c:choose>
-				<a class="page-link" href="${contextPath}/home/${currentPage + 1}"
-					tabindex="-1" aria-disabled="true">Next</a>
-				</li>
+
 			</ul>
 		</nav>
 	</div>

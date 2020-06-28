@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rentservice.dao.RentListMapper">
+	<resultMap type="com.rentservice.model.RentProfile"
+		id="rentprofile">
+		<result column="product_name" property="product_name" />
+		<result column="type" property="type" />
+		<result column="price" property="price" />
+		<result column="address" property="address" />
+		<result column="detail" property="detail" />
+		<result column="name" property="name" />
+		<result column="status" property="status"
+			typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler" />
+	</resultMap>
+	<insert id="inserRentList"
+		parameterType="com.rentservice.model.RentList">
+		insert into
+		rent_list(id,product_id,lender_id,status)
+		values(#{id},#{product_id},#{lender_id},#{status,typeHandler=org.apache.ibatis.type.EnumOrdinalTypeHandler})
+	</insert>
+	<select id="selectLendProfile" parameterType="int"
+		resultMap="rentprofile">
+		select
+		p.name as
+		product_name,p.type,p.price,p.address,p.detail,u.name,r.status
+		from
+		product p,rent_list r left join user u on r.borrower_id=u.id where
+		r.lender_id=#{lender_id} and
+		p.product_id=r.product_id
+	</select>
+	<select id="selectBorrowProfile" parameterType="int"
+		resultMap="rentprofile">
+		select
+		p.name as
+		product_name,p.type,p.price,p.address,p.detail,u.name,r.status
+		from
+		product p,rent_list r left join user u on r.lender_id=u.id where
+		r.borrower_id=#{borrower_id} and
+		p.product_id=r.product_id
+	</select>
+</mapper>
