@@ -18,7 +18,7 @@
 <body>
 	<div class="container">
 		<div class="form-signin-heading">
-			<a href="${contextPath}/"> <img src="/image/logo.jpg">
+			<a href="${contextPath}/"> <img src="/images/logo.jpg">
 			</a>
 		</div>
 		<form:form method="POST" action="${contextPath}/login"

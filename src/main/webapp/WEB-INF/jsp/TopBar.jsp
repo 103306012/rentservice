@@ -23,7 +23,7 @@
 			<div class="row">
 				<div class="col-lg-2 text-center text-lg-left">
 					<a href="${contextPath}/" class="site-logo"> <img
-						src="/image/logo.jpg" alt="">
+						src="/images/logo.jpg" alt="">
 					</a>
 
 				</div>
@@ -79,10 +79,10 @@
 			<!-- menu -->
 			<ul class="main-menu">
 				<li><a href="${contextPath}/category/transport">交通</a></li>
-				<li><a href="${contextPath}/category/videogame">電玩</a></li>
+				<li><a href="${contextPath}/category/game">電玩</a></li>
 				<li><a href="${contextPath}/category/travel">旅遊</a></li>
-				<li><a href="${contextPath}/category/dress">服飾 </a></li>
-				<li><a href="${contextPath}/category/audiovideo">影音</a></li>
+				<li><a href="${contextPath}/category/cloth">服飾 </a></li>
+				<li><a href="${contextPath}/category/video">影音</a></li>
 				<li><a href="${contextPath}/category/book">書籍</a></li>
 				<li><a href="${contextPath}/category/3c">3C電子</a></li>
 				<li><a href="${contextPath}/category/other">其他</a></li>

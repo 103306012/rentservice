@@ -18,11 +18,12 @@
 		<div style="display: flex; flex-wrap: wrap">
 			<c:forEach items="${productlist}" var="product">
 				<div style="width: 33%;">
-					<a href="${contextPath}/viewproduct/${product.getProduct_id()}">
+					<a href="${contextPath}/viewproduct/${product.getProductId()}">
 						<img width="200" height="200"
-						src="<c:url value="/image/"/>${product.getFiles().get(0)}" /> <br>
+						src="<c:url value="/images/"/>${product.getImgList().get(0).getUrl()}" />
+						<br>
 						<h6 style="text-align: center;">${product.getName()}</h6>
-						<h6 style="text-align: center;">35元</h6>
+						<h6 style="text-align: center;">${product.getPrice()}元/每日</h6>
 					</a>
 					<p></p>
 				</div>

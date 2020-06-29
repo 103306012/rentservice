@@ -19,7 +19,7 @@ import com.rentservice.service.UploadService;
 public class UploadProductController {
 	@Autowired
 	UploadService uploadService;
-
+	public static String uploadDirectory = "/home/admin/images/";
 	@GetMapping
 	public String viewUpload(Model model) {
 		UploadProductForm upload = new UploadProductForm();
@@ -32,11 +32,10 @@ public class UploadProductController {
 	public String uploadproduct(HttpServletRequest servletRequest,
 			@ModelAttribute("upload") @Valid UploadProductForm upload, BindingResult bindingResult) {
 		String username = (String) servletRequest.getSession().getAttribute("login");
-		if (!uploadService.upload(upload, bindingResult, servletRequest.getServletContext().getRealPath("/image"),
-				username)) {
+		if (!uploadService.upload(upload, bindingResult, uploadDirectory, username)) {
 			return "UploadProduct";
 		}
-		return "Home";
+		return "redirect:/";
 	}
 
 }

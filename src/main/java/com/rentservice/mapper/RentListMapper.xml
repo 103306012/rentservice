@@ -3,7 +3,8 @@
 <mapper namespace="com.rentservice.dao.RentListMapper">
 	<resultMap type="com.rentservice.model.RentProfile"
 		id="rentprofile">
-		<result column="product_name" property="product_name" />
+		<result column="product_id" property="productId" />
+		<result column="product_name" property="productName" />
 		<result column="type" property="type" />
 		<result column="price" property="price" />
 		<result column="address" property="address" />
@@ -20,7 +21,7 @@
 	</insert>
 	<select id="selectLendProfile" parameterType="int"
 		resultMap="rentprofile">
-		select
+		select p.product_id,
 		p.name as
 		product_name,p.type,p.price,p.address,p.detail,u.name,r.status
 		from
@@ -30,7 +31,7 @@
 	</select>
 	<select id="selectBorrowProfile" parameterType="int"
 		resultMap="rentprofile">
-		select
+		select p.product_id,
 		p.name as
 		product_name,p.type,p.price,p.address,p.detail,u.name,r.status
 		from
@@ -38,4 +39,18 @@
 		r.borrower_id=#{borrower_id} and
 		p.product_id=r.product_id
 	</select>
+	<delete id="removeRentList">
+		delete from rent_list where product_id=#{product_id}
+	</delete>
+	<update id="updateStatus" parameterType="map">
+		update rent_list set status
+		= #{status}
+		<if test="status==0">, borrower_id = 0</if>
+		where product_id = #{productId}
+	</update>
+	<update id="rentProduct" parameterType="map">
+		update rent_list set
+		status =1 ,borrower_id=#{userId}
+		where product_id = #{productId}
+	</update>
 </mapper>

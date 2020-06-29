@@ -11,5 +11,12 @@
 			(#{product.product_id},#{file})
 		</foreach>
 	</insert>
-
+	<delete id="deleteImg" parameterType="int">
+		delete from img where
+		product_id=#{productId}
+	</delete>
+	<select id="selectImgs" parameterType="string"
+		resultType="com.rentservice.model.Img">
+		select * from img where product_id=#{productId}
+	</select>
 </mapper>

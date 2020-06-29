@@ -19,10 +19,12 @@ public class WebConfig implements WebMvcConfigurer {
 
 	@Autowired
 	LoginInterceptor logininterceptor;
+	public static String uploadDirectory = "/home/admin/images/";
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(logininterceptor).addPathPatterns("/uploadproduct/**", "/profile/**", "/rentlist/**");
+		registry.addInterceptor(logininterceptor).addPathPatterns("/uploadproduct/**", "/profile/**", "/rentlist/**",
+				"/viewproduct/rent/**");
 	}
 
 	@Bean
@@ -46,6 +48,8 @@ public class WebConfig implements WebMvcConfigurer {
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 		registry.addResourceHandler("/bootstrap/**")
 				.addResourceLocations("classpath:/META-INF/resources/webjars/bootstrap/4.4.1-1/").resourceChain(false);
+		registry.addResourceHandler("/images/**").addResourceLocations("file:" + uploadDirectory)
+				.resourceChain(false);
 	}
 
 }

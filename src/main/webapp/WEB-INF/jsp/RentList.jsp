@@ -1,7 +1,10 @@
+<!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <html>
 <head>
 <meta charset="UTF-8">
@@ -31,7 +34,7 @@
 			<tbody>
 				<c:forEach items="${lend_list}" var="lend">
 					<tr>
-						<td width="10%">${lend.getProduct_name()}</td>
+						<td width="10%">${lend.getProductName()}</td>
 						<td width="10%">${lend.getType()}</td>
 						<td width="10%">${lend.getPrice()}</td>
 						<td width="20%">${lend.getAddress()}</td>
@@ -40,7 +43,8 @@
 						<td width="10%">${lend.getName()}</td>
 						<c:choose>
 							<c:when test="${lend.getStatus() == 'WATING'}">
-								<td width="10%"><button>下架</button></td>
+								<td width="10%"><a
+									href="${contextPath}/rentlist/remove/${lend.getProductId()}"><button>下架</button></a></td>
 							</c:when>
 						</c:choose>
 
@@ -67,15 +71,25 @@
 			<tbody>
 				<c:forEach items="${borrow_list}" var="borrow">
 					<tr>
-						<td width="10%">${borrow.getProduct_name()}</td>
+						<td width="10%">${borrow.getProductName()}</td>
 						<td width="10%">${borrow.getType()}</td>
 						<td width="10%">${borrow.getPrice()}</td>
 						<td width="10%">${borrow.getAddress()}</td>
 						<td width="20%">${borrow.getDetail()}</td>
 						<td width="10%">${borrow.getStatus().getName()}</td>
 						<td width="10%">${borrow.getName()}</td>
-						<td width="10%"><button>取消</button></td>
-						<td width="10%"><button>完成</button></td>
+						<c:choose>
+							<c:when test="${borrow.getStatus() == 'GOING'}">
+								<td width="10%"><a
+									href="${contextPath}/rentlist/updatecancel/${borrow.getProductId()}"><button>取消</button></a></td>
+							</c:when>
+						</c:choose>
+						<c:choose>
+							<c:when test="${borrow.getStatus() == 'GOING'}">
+								<td width="10%"><a
+									href="${contextPath}/rentlist/updatefinish/${borrow.getProductId()}"><button>完成</button></a></td>
+							</c:when>
+						</c:choose>
 					</tr>
 				</c:forEach>
 			</tbody>

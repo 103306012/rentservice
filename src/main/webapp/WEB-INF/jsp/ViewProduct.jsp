@@ -16,16 +16,22 @@
 	<jsp:include page="TopBar.jsp"></jsp:include>
 	<div class="container">
 		<div class="form-signin">
-			<h2>商品名稱:${product.getName()}</h2>
-			<h2>價格:${product.getPrice()}元/1天</h2>
-			<h2>商品內容:${product.getDetail()}</h2>
-			<c:forEach items="${product.getFiles()}" var="file">
+			<h2>商品名稱:${productWithImg.getName()}</h2>
+			<h2>類型:${productWithImg.getType()}</h2>
+			<h2>價格:${productWithImg.getPrice()}元/1天</h2>
+			<h2>地址:${productWithImg.getAddress()}</h2>
+			<h2>商品內容:${productWithImg.getDetail()}</h2>
+			<c:forEach items="${productWithImg.getImgList()}" var="img">
 				<div>
-					<img width="200" height="200" src="<c:url value="/image/"/>${file}" />
+					<img width="200" height="200"
+						src="<c:url value="/images/"/>${img.getUrl()}" />
 				</div>
 				<br>
 			</c:forEach>
-			<button class="btn btn-lg btn-primary btn-block" type="submit">租借</button>
+			<a
+				href="${contextPath}/viewproduct/rent/${productWithImg.getProductId()}">
+				<button class="btn btn-lg btn-primary btn-block" type="submit">租借</button>
+			</a>
 		</div>
 	</div>
 </body>

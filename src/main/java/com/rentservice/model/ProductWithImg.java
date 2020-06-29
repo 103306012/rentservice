@@ -1,30 +1,30 @@
 package com.rentservice.model;
 
-public class RentProfile {
+import java.util.List;
+
+public class ProductWithImg {
 	private int productId;
-	private String productName;
+	private String name;
 	private String type;
 	private int price;
 	private String address;
 	private String detail;
-	private String name;
-	private Status status;
+	private List<Img> imgList;
 
-	public RentProfile() {
+	public ProductWithImg() {
 		super();
 	}
 
-	public RentProfile(int productId, String productName, String type, int price, String address, String detail,
-			String name, Status status) {
+	public ProductWithImg(int productId, String name, String type, int price, String address, String detail,
+			List<Img> imgList) {
 		super();
 		this.productId = productId;
-		this.productName = productName;
+		this.name = name;
 		this.type = type;
 		this.price = price;
 		this.address = address;
 		this.detail = detail;
-		this.name = name;
-		this.status = status;
+		this.imgList = imgList;
 	}
 
 	public int getProductId() {
@@ -35,12 +35,12 @@ public class RentProfile {
 		this.productId = productId;
 	}
 
-	public String getProductName() {
-		return productName;
+	public String getName() {
+		return name;
 	}
 
-	public void setProductName(String productName) {
-		this.productName = productName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getType() {
@@ -75,20 +75,12 @@ public class RentProfile {
 		this.detail = detail;
 	}
 
-	public String getName() {
-		return name;
+	public List<Img> getImgList() {
+		return imgList;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Status getStatus() {
-		return status;
-	}
-
-	public void setStatus(Status status) {
-		this.status = status;
+	public void setImgList(List<Img> imgList) {
+		this.imgList = imgList;
 	}
 
 }
