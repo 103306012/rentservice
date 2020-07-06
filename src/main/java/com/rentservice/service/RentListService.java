@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.rentservice.dao.RentListMapper;
+import com.rentservice.model.Product;
 import com.rentservice.model.RentList;
 import com.rentservice.model.RentProfile;
 import com.rentservice.model.Status;
@@ -13,7 +14,11 @@ public class RentListService {
 	@Autowired
 	private RentListMapper mapper;
 
-	public void inserRentList(RentList rentList) {
+	public void inserRentList(Product product, int userId) {
+		RentList rentList = new RentList();
+		rentList.setProduct_id(product.getProduct_id());
+		rentList.setLender_id(userId);
+		rentList.setStatus(Status.WATING);
 		mapper.inserRentList(rentList);
 	}
 

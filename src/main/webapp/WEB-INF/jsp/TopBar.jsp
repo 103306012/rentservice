@@ -38,12 +38,12 @@
 				<div class="col-xl-4 col-lg-5">
 					<div class="user-panel">
 						<c:choose>
-							<c:when test="${not empty sessionScope.login}">
+							<c:when test="${not empty sessionScope.loginName}">
 								<div class="up-item">
 									<nav style="display: inline-block">
 										<ul class="main-menu">
 											<li><i class="flaticon-profile"></i><a
-												href="${contextPath}/profile">${sessionScope.login}</a>
+												href="${contextPath}/profile">${sessionScope.loginName}</a>
 												<ul class="sub-menu">
 													<li><a href="${contextPath}/profile">我的資料</a></li>
 													<li><a href="${contextPath}/uploadproduct">新增租借商品</a></li>

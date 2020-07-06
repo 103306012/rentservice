@@ -19,7 +19,7 @@ public class ProfileController {
 
 	@GetMapping
 	public String viewProfile(HttpServletRequest request, Model model) {
-		String username = (String) request.getSession().getAttribute("login");
+		String username = (String) request.getSession().getAttribute("loginName");
 		User user = userservice.getprofile(username);
 		model.addAttribute("user", user);
 		return "Profile";

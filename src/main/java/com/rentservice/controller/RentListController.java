@@ -6,15 +6,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
 import com.rentservice.service.ProductService;
 import com.rentservice.service.RentListService;
-import com.rentservice.service.UserService;
 
 @Controller
 public class RentListController {
-	@Autowired
-	private UserService userService;
 	@Autowired
 	private RentListService rentListService;
 	@Autowired
@@ -22,8 +18,7 @@ public class RentListController {
 
 	@GetMapping("/rentlist")
 	public String viewRentList(Model model, HttpServletRequest request) {
-		String username = (String) request.getSession().getAttribute("login");
-		int userId = userService.getId(username);
+		int userId = (int) request.getSession().getAttribute("loginId");
 		model.addAttribute("lend_list", rentListService.selectLendList(userId));
 		model.addAttribute("borrow_list", rentListService.selectBorrowList(userId));
 		return "RentList";

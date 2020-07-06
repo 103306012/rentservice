@@ -38,7 +38,8 @@ public class LogInOutController {
 		}
 		request.changeSessionId();
 		HttpSession session = request.getSession(false);
-		session.setAttribute("login", login.getUsername());
+		session.setAttribute("loginName", login.getUsername());
+		session.setAttribute("loginId", userservice.getId(login.getUsername()));
 		return "redirect:" + request.getSession().getAttribute("url_prior_login");
 	}
 

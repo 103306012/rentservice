@@ -1,31 +1,25 @@
 package com.rentservice.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
-import com.rentservice.dao.ProductMapper;
-import com.rentservice.model.ProductWithImg;
+import com.rentservice.service.ProductService;
 
 @Controller
 public class HomeController {
+
 	@Autowired
-	private ProductMapper mapper;
+	private ProductService productService;
 
 	@GetMapping(value = { "/home", "/", "/home/{page}" })
 	public String viewHome(@PathVariable(required = false) Integer page, Model model) {
-		if (page == null) {
-			page = 1;
-		}
-		page = page - 1;
-		List<ProductWithImg> list = mapper.selectAllProductWithImg(null, null, page * 9, page * 9 + 9);
-		model.addAttribute("productlist", list);
-		model.addAttribute("noOfPages", mapper.selectProductCount(null, null) / 10 + 1);
-		model.addAttribute("currentPage", page+1);
+
+		page = page == null ? 0 : page - 1;
+		model.addAttribute("productlist", productService.ViewProductList(null, null, page));
+		model.addAttribute("noOfPages", productService.GetProductListCount(null, null));
+		model.addAttribute("currentPage", page + 1);
 		return "Home";
 
 	}

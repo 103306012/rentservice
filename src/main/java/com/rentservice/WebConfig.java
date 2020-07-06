@@ -1,6 +1,7 @@
 package com.rentservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +20,8 @@ public class WebConfig implements WebMvcConfigurer {
 
 	@Autowired
 	LoginInterceptor logininterceptor;
-	public static String uploadDirectory = "/home/admin/images/";
+	@Value("${directory.path}")
+	private String path;
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
@@ -48,8 +50,7 @@ public class WebConfig implements WebMvcConfigurer {
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 		registry.addResourceHandler("/bootstrap/**")
 				.addResourceLocations("classpath:/META-INF/resources/webjars/bootstrap/4.4.1-1/").resourceChain(false);
-		registry.addResourceHandler("/images/**").addResourceLocations("file:" + uploadDirectory)
-				.resourceChain(false);
+		registry.addResourceHandler("/images/**").addResourceLocations("file:" + path).resourceChain(false);
 	}
 
 }

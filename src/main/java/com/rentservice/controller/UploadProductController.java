@@ -2,7 +2,6 @@ package com.rentservice.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +18,7 @@ import com.rentservice.service.UploadService;
 public class UploadProductController {
 	@Autowired
 	UploadService uploadService;
-	public static String uploadDirectory = "/home/admin/images/";
+
 	@GetMapping
 	public String viewUpload(Model model) {
 		UploadProductForm upload = new UploadProductForm();
@@ -31,8 +30,7 @@ public class UploadProductController {
 	@PostMapping
 	public String uploadproduct(HttpServletRequest servletRequest,
 			@ModelAttribute("upload") @Valid UploadProductForm upload, BindingResult bindingResult) {
-		String username = (String) servletRequest.getSession().getAttribute("login");
-		if (!uploadService.upload(upload, bindingResult, uploadDirectory, username)) {
+		if (!uploadService.upload(upload, bindingResult, (int) servletRequest.getSession().getAttribute("loginId"))) {
 			return "UploadProduct";
 		}
 		return "redirect:/";

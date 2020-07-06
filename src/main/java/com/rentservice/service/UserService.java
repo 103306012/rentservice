@@ -20,7 +20,7 @@ public class UserService {
 	public boolean checklogin(HttpServletRequest request) {
 		HttpSession session = request.getSession(true);
 		if (session != null) {
-			String loginuUsername = (String) session.getAttribute("login");
+			String loginuUsername = (String) session.getAttribute("loginName");
 			if (loginuUsername != null) {
 				return true;
 			}
