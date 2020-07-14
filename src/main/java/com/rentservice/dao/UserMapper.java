@@ -13,7 +13,7 @@ public interface UserMapper {
 
 	String findPassword(String username);
 
-	User getUser(String username);
+	User getUser(int userId);
 
 	int getId(String username);
 

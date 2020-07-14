@@ -1,0 +1,30 @@
+<configuration scan="true" scanPeriod="60 seconds"
+	debug="false">
+	<contextName>logback-demo</contextName>
+	<appender name="CONSOLE"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>%d-%-5level %logger:%msg%n</pattern>
+		</layout>
+	</appender>
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>log/%d{yyyy-MM-dd}.log
+			</FileNamePattern>
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>%d-%-5level %logger:%msg%n</pattern>
+		</encoder>
+	</appender>
+	<logger name="com.rentservice.dao" level="DEBUG" />
+	<logger name="org.springframework.cache" level="trace">
+	</logger>
+	<root level="INFO">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+	</root>
+</configuration>

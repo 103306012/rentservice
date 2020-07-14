@@ -1,6 +1,7 @@
 package com.rentservice.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,8 +30,9 @@ public class UploadProductController {
 
 	@PostMapping
 	public String uploadproduct(HttpServletRequest servletRequest,
-			@ModelAttribute("upload") @Valid UploadProductForm upload, BindingResult bindingResult) {
-		if (!uploadService.upload(upload, bindingResult, (int) servletRequest.getSession().getAttribute("loginId"))) {
+			@ModelAttribute("upload") @Valid UploadProductForm upload, BindingResult bindingResult,
+			HttpSession session) {
+		if (!uploadService.upload(upload, bindingResult,session)) {
 			return "UploadProduct";
 		}
 		return "redirect:/";

@@ -1,6 +1,9 @@
 package com.rentservice.model;
 
-public class Img {
+import java.io.Serializable;
+
+public class Img implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private int imgId;
 	private int productId;
 	private String url;

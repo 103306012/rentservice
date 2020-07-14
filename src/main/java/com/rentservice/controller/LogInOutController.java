@@ -13,7 +13,6 @@ import com.rentservice.service.UserService;
 
 @Controller
 public class LogInOutController {
-
 	@Autowired
 	private UserService userservice;
 

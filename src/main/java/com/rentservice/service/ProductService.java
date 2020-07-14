@@ -1,7 +1,12 @@
 package com.rentservice.service;
 
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import com.rentservice.dao.ImgMapper;
 import com.rentservice.dao.ProductMapper;
@@ -28,11 +33,13 @@ public class ProductService {
 		productMapper.removeProduct(productId);
 	}
 
+	@Cacheable(value = "product", key = "#productId")
 	public ProductWithImg ViewProduct(int productId) {
 		return productMapper.selectProductWithImg(productId);
 	}
 
-	public void RentProduct(int userId, int productId) {
+	public void RentProduct(int productId, HttpSession session) {
+		int userId = (Integer) session.getAttribute("loginId");
 		rentListMapper.rentProduct(userId, productId);
 	}
 

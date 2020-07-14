@@ -4,8 +4,12 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,11 +28,12 @@ public class UploadService {
 	RentListService rentListService;
 	@Autowired
 	UserService userService;
+
 	@Value("${directory.path}")
 	private String path;
 
 	@Transactional(value = "transactionManager", propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-	public boolean upload(UploadProductForm upload, BindingResult bindingResult, int userId) {
+	public boolean upload(UploadProductForm upload, BindingResult bindingResult, HttpSession session) {
 		if (upload.getType().equals("null")) {
 			bindingResult.rejectValue("type", "error.upload", "請選擇類型");
 			return false;
@@ -45,6 +50,7 @@ public class UploadService {
 		Product product = new Product(upload);
 		productService.insertProduct(product);
 		imgService.insertImg(product);
+		int userId = (Integer) session.getAttribute("loginId");
 		rentListService.inserRentList(product, userId);
 		return true;
 	}

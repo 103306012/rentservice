@@ -20,8 +20,8 @@ public class UserService {
 	public boolean checklogin(HttpServletRequest request) {
 		HttpSession session = request.getSession(true);
 		if (session != null) {
-			String loginuUsername = (String) session.getAttribute("loginName");
-			if (loginuUsername != null) {
+			Integer loginId = (Integer) session.getAttribute("loginId");
+			if (loginId != null) {
 				return true;
 			}
 		}
@@ -39,8 +39,8 @@ public class UserService {
 		return true;
 	}
 
-	public User getprofile(String username) {
-		User user = mapper.getUser(username);
+	public User getprofile(int userId) {
+		User user = mapper.getUser(userId);
 		return user;
 	}
 

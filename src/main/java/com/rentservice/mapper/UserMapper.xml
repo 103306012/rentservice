@@ -17,9 +17,9 @@
 		resultType="string">
 		select password from user where username =#{username}
 	</select>
-	<select id="getUser" parameterType="string"
+	<select id="getUser" parameterType="int"
 		resultType="com.rentservice.model.User">
-		select * from user where username =#{username}
+		select * from user where id =#{userId}
 	</select>
 	<select id="getId" parameterType="string" resultType="int">
 		select id from user where username =#{username}

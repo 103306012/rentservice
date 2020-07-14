@@ -1,0 +1,22 @@
+2020-07-14 20:05:11,920-INFO  com.rentservice.RentserviceApplication:Starting RentserviceApplication on DESKTOP-35BCF7N with PID 12668 (C:\rentservice\target\classes started by roylove1258 in C:\rentservice)
+2020-07-14 20:05:11,922-INFO  com.rentservice.RentserviceApplication:The following profiles are active: dev
+2020-07-14 20:05:12,443-INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate:Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-07-14 20:05:12,446-INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-07-14 20:05:12,469-INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 9ms. Found 0 Redis repository interfaces.
+2020-07-14 20:05:13,262-INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat initialized with port(s): 8080 (http)
+2020-07-14 20:05:13,272-INFO  org.apache.coyote.http11.Http11NioProtocol:Initializing ProtocolHandler ["http-nio-8080"]
+2020-07-14 20:05:13,273-INFO  org.apache.catalina.core.StandardService:Starting service [Tomcat]
+2020-07-14 20:05:13,273-INFO  org.apache.catalina.core.StandardEngine:Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-07-14 20:05:13,457-INFO  org.apache.jasper.servlet.TldScanner:At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-07-14 20:05:13,463-INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring embedded WebApplicationContext
+2020-07-14 20:05:13,463-INFO  org.springframework.web.context.ContextLoader:Root WebApplicationContext: initialization completed in 1503 ms
+2020-07-14 20:05:13,775-TRACE org.springframework.cache.annotation.AnnotationCacheOperationSource:Adding cacheable method 'ViewProduct' with attribute: [Builder[public com.rentservice.model.ProductWithImg com.rentservice.service.ProductService.ViewProduct(int)] caches=[product] | key='#productId' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false']
+2020-07-14 20:05:13,914-INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor:Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-14 20:05:14,184-INFO  io.lettuce.core.EpollProvider:Starting without optional epoll library
+2020-07-14 20:05:14,185-INFO  io.lettuce.core.KqueueProvider:Starting without optional kqueue library
+2020-07-14 20:05:15,308-INFO  org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor:No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2020-07-14 20:05:15,317-INFO  org.apache.coyote.http11.Http11NioProtocol:Starting ProtocolHandler ["http-nio-8080"]
+2020-07-14 20:05:15,331-INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-14 20:05:15,334-INFO  com.rentservice.RentserviceApplication:Started RentserviceApplication in 3.743 seconds (JVM running for 4.358)
+2020-07-14 20:50:25,231-INFO  org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin:Application shutdown requested.
+2020-07-14 20:50:25,241-INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor:Shutting down ExecutorService 'applicationTaskExecutor'

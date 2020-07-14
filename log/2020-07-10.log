@@ -1,0 +1,76 @@
+2020-07-10 20:29:46,621-INFO c.rentservice.RentserviceApplication-Starting RentserviceApplication on DESKTOP-35BCF7N with PID 4692 (C:\rentservice\target\classes started by roylove1258 in C:\rentservice)
+2020-07-10 20:29:46,623-INFO c.rentservice.RentserviceApplication-The following profiles are active: dev
+2020-07-10 20:29:47,058-INFO o.s.d.r.c.RepositoryConfigurationDelegate-Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-07-10 20:29:47,060-INFO o.s.d.r.c.RepositoryConfigurationDelegate-Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-07-10 20:29:47,077-INFO o.s.d.r.c.RepositoryConfigurationDelegate-Finished Spring Data repository scanning in 7ms. Found 0 Redis repository interfaces.
+2020-07-10 20:29:47,651-INFO o.s.b.w.e.tomcat.TomcatWebServer-Tomcat initialized with port(s): 8080 (http)
+2020-07-10 20:29:47,658-INFO o.a.coyote.http11.Http11NioProtocol-Initializing ProtocolHandler ["http-nio-8080"]
+2020-07-10 20:29:47,658-INFO o.a.catalina.core.StandardService-Starting service [Tomcat]
+2020-07-10 20:29:47,658-INFO o.a.catalina.core.StandardEngine-Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-07-10 20:29:47,821-INFO org.apache.jasper.servlet.TldScanner-At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-07-10 20:29:47,827-INFO o.a.c.c.C.[Tomcat].[localhost].[/]-Initializing Spring embedded WebApplicationContext
+2020-07-10 20:29:47,827-INFO o.s.web.context.ContextLoader-Root WebApplicationContext: initialization completed in 1178 ms
+2020-07-10 20:29:48,091-TRACEo.s.c.a.AnnotationCacheOperationSource-Adding cacheable method 'ViewProduct' with attribute: [Builder[public com.rentservice.model.ProductWithImg com.rentservice.service.ProductService.ViewProduct(int)] caches=[product] | key='#productId' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false']
+2020-07-10 20:29:48,218-INFO o.s.s.c.ThreadPoolTaskExecutor-Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 20:29:48,457-INFO io.lettuce.core.EpollProvider-Starting without optional epoll library
+2020-07-10 20:29:48,457-INFO io.lettuce.core.KqueueProvider-Starting without optional kqueue library
+2020-07-10 20:29:49,538-INFO o.s.s.a.ScheduledAnnotationBeanPostProcessor-No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2020-07-10 20:29:49,542-INFO o.a.coyote.http11.Http11NioProtocol-Starting ProtocolHandler ["http-nio-8080"]
+2020-07-10 20:29:49,559-INFO o.s.b.w.e.tomcat.TomcatWebServer-Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 20:29:49,562-INFO c.rentservice.RentserviceApplication-Started RentserviceApplication in 3.194 seconds (JVM running for 3.72)
+2020-07-10 20:29:49,660-INFO o.a.c.c.C.[Tomcat].[localhost].[/]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 20:29:49,662-INFO o.s.web.servlet.DispatcherServlet-Initializing Servlet 'dispatcherServlet'
+2020-07-10 20:29:49,667-INFO o.s.web.servlet.DispatcherServlet-Completed initialization in 5 ms
+2020-07-10 20:29:49,710-INFO com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Starting...
+2020-07-10 20:29:49,827-INFO com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Start completed.
+2020-07-10 20:29:49,831-DEBUGc.r.d.P.selectAllProductWithImg-==>  Preparing: select p.* from product p ,rent_list r where p.product_id=r.product_id and r.status=0 limit ?,?
+2020-07-10 20:29:49,845-DEBUGc.r.d.P.selectAllProductWithImg-==> Parameters: 0(Integer), 9(Integer)
+2020-07-10 20:29:49,906-DEBUGc.r.dao.ImgMapper.selectImgs-====>  Preparing: select * from img where product_id=?
+2020-07-10 20:29:49,906-DEBUGc.r.dao.ImgMapper.selectImgs-====> Parameters: 1(String)
+2020-07-10 20:29:49,918-DEBUGc.r.dao.ImgMapper.selectImgs-<====      Total: 1
+2020-07-10 20:29:49,920-DEBUGc.r.d.P.selectAllProductWithImg-<==      Total: 1
+2020-07-10 20:29:49,921-DEBUGc.r.d.P.selectProductCount-==>  Preparing: select count(1) from product p,rent_list r where p.product_id=r.product_id and r.status=0
+2020-07-10 20:29:49,922-DEBUGc.r.d.P.selectProductCount-==> Parameters: 
+2020-07-10 20:29:49,926-DEBUGc.r.d.P.selectProductCount-<==      Total: 1
+2020-07-10 20:43:26,295-INFO org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin-Application shutdown requested.
+2020-07-10 20:43:26,300-INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor-Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-10 20:43:26,519-INFO com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown initiated...
+2020-07-10 20:43:26,528-INFO com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown completed.
+2020-07-10 20:43:33,472-INFO  com.rentservice.RentserviceApplication:Starting RentserviceApplication on DESKTOP-35BCF7N with PID 7968 (C:\rentservice\target\classes started by roylove1258 in C:\rentservice)
+2020-07-10 20:43:33,474-INFO  com.rentservice.RentserviceApplication:The following profiles are active: dev
+2020-07-10 20:43:33,905-INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate:Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-07-10 20:43:33,906-INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-07-10 20:43:33,923-INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 7ms. Found 0 Redis repository interfaces.
+2020-07-10 20:43:34,485-INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat initialized with port(s): 8080 (http)
+2020-07-10 20:43:34,491-INFO  org.apache.coyote.http11.Http11NioProtocol:Initializing ProtocolHandler ["http-nio-8080"]
+2020-07-10 20:43:34,492-INFO  org.apache.catalina.core.StandardService:Starting service [Tomcat]
+2020-07-10 20:43:34,492-INFO  org.apache.catalina.core.StandardEngine:Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-07-10 20:43:34,648-INFO  org.apache.jasper.servlet.TldScanner:At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-07-10 20:43:34,654-INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring embedded WebApplicationContext
+2020-07-10 20:43:34,655-INFO  org.springframework.web.context.ContextLoader:Root WebApplicationContext: initialization completed in 1155 ms
+2020-07-10 20:43:34,920-TRACE org.springframework.cache.annotation.AnnotationCacheOperationSource:Adding cacheable method 'ViewProduct' with attribute: [Builder[public com.rentservice.model.ProductWithImg com.rentservice.service.ProductService.ViewProduct(int)] caches=[product] | key='#productId' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false']
+2020-07-10 20:43:35,050-INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor:Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-10 20:43:35,295-INFO  io.lettuce.core.EpollProvider:Starting without optional epoll library
+2020-07-10 20:43:35,297-INFO  io.lettuce.core.KqueueProvider:Starting without optional kqueue library
+2020-07-10 20:43:36,385-INFO  org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor:No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2020-07-10 20:43:36,390-INFO  org.apache.coyote.http11.Http11NioProtocol:Starting ProtocolHandler ["http-nio-8080"]
+2020-07-10 20:43:36,407-INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-10 20:43:36,409-INFO  com.rentservice.RentserviceApplication:Started RentserviceApplication in 3.184 seconds (JVM running for 3.695)
+2020-07-10 20:43:41,598-INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-10 20:43:41,599-INFO  org.springframework.web.servlet.DispatcherServlet:Initializing Servlet 'dispatcherServlet'
+2020-07-10 20:43:41,605-INFO  org.springframework.web.servlet.DispatcherServlet:Completed initialization in 6 ms
+2020-07-10 20:43:41,654-INFO  com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
+2020-07-10 20:43:41,734-INFO  com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
+2020-07-10 20:43:41,739-DEBUG com.rentservice.dao.ProductMapper.selectAllProductWithImg:==>  Preparing: select p.* from product p ,rent_list r where p.product_id=r.product_id and r.status=0 limit ?,?
+2020-07-10 20:43:41,752-DEBUG com.rentservice.dao.ProductMapper.selectAllProductWithImg:==> Parameters: 0(Integer), 9(Integer)
+2020-07-10 20:43:41,765-DEBUG com.rentservice.dao.ImgMapper.selectImgs:====>  Preparing: select * from img where product_id=?
+2020-07-10 20:43:41,765-DEBUG com.rentservice.dao.ImgMapper.selectImgs:====> Parameters: 1(String)
+2020-07-10 20:43:41,766-DEBUG com.rentservice.dao.ImgMapper.selectImgs:<====      Total: 1
+2020-07-10 20:43:41,768-DEBUG com.rentservice.dao.ProductMapper.selectAllProductWithImg:<==      Total: 1
+2020-07-10 20:43:41,770-DEBUG com.rentservice.dao.ProductMapper.selectProductCount:==>  Preparing: select count(1) from product p,rent_list r where p.product_id=r.product_id and r.status=0
+2020-07-10 20:43:41,770-DEBUG com.rentservice.dao.ProductMapper.selectProductCount:==> Parameters: 
+2020-07-10 20:43:41,771-DEBUG com.rentservice.dao.ProductMapper.selectProductCount:<==      Total: 1
+2020-07-10 20:44:11,131-INFO  org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin:Application shutdown requested.
+2020-07-10 20:44:11,137-INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor:Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-10 20:44:11,252-INFO  com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
+2020-07-10 20:44:11,262-INFO  com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.

@@ -1,6 +1,6 @@
 package com.rentservice.controller;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,8 +25,8 @@ public class ViewProductController {
 	}
 
 	@GetMapping("/rent/{productId}")
-	public String rentProduct(@PathVariable(required = true) int productId, HttpServletRequest request) {
-		productService.RentProduct((int) request.getSession().getAttribute("loginId"), productId);
+	public String rentProduct(@PathVariable(required = true) int productId, HttpSession session) {
+		productService.RentProduct(productId, session);
 		return "redirect:/rentlist";
 	}
 }
